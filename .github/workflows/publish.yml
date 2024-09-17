@@ -6,9 +6,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: step-security/harden-runner@v2
+      - uses: listendev/action@v0.10
         with:
-          egress-policy: audit
+          ci: only
+          jwt: ${{ secrets.LSTN_API_KEY }}
       - uses: actions/checkout@v3
       - name: npm install
         run: |
